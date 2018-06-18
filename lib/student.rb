@@ -70,8 +70,17 @@ class Student
     SQL
     
     DB[:conn].execute(sql).map {|row|
-      self.new_from_db(row)
-    }
+      self.new_from_db(row)}
+  end 
+  
+  def self.fist_x_students_in_grade_10(number)
+    sql = <<-SQL
+    SELECT *
+    FROM students
+    WHERE grade = 10
+    SQL
+    
+    DB[:conn].execute(sql)
   end 
     
 end
