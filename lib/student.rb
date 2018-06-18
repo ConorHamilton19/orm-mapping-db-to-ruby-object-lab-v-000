@@ -23,7 +23,7 @@ class Student
     FROM students
     WHERE name = ?
     SQL
-    DB[:conn]. execute(sql, name).collect{|name| self
+    DB[:conn]. execute(sql, name).collect{|row| self.new_from_db(row)}
   end
   
   def save
